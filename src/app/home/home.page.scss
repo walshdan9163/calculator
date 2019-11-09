@@ -1,1 +1,19 @@
 
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.calc-button {
+    width: calc(25% - 4px);
+    height: 64px;
+    font-size: 32px;
+}
+.calc-button-bottom {
+    width: calc(33% - 4px);
+    height: 64px;
+    font-size: 32px;
+}
+.number {
+    color:teal;
+}
