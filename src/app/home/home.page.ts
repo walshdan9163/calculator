@@ -1,18 +1,21 @@
 import { Component } from '@angular/core';
 import { SlicePipe } from '@angular/common';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  value = '0';
 
   constructor() {}
   currNumbers=[];
   currOperators=[];
   currNumber="";
 
+  
   changeSign()
   {
     if(this.currNumber.slice(0,1) ==="-")
@@ -73,6 +76,7 @@ export class HomePage {
     }
     calculateString += this.currNumbers[j]
     console.log(calculateString);
+    value = calculateString;
 
     //Reset the state
     this.resetState();
