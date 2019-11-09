@@ -11,7 +11,7 @@ import * as $ from "jquery";
 })
 export class HomePage {
   constructor() {}
-  baseURL="http://numbersapi.com/"
+  baseURL="https://numbersapi.com/"
   urlParams="/trivia?notfound=floor"
   currNumbers=[];
   currOperators=[];
@@ -105,7 +105,6 @@ export class HomePage {
     {//Append the number to our display
       this.value += num;
     }
-    
   }
 
   calculateResult()
@@ -150,6 +149,7 @@ export class HomePage {
   resetAll()
   {
     this.value ="";
+    this.randFact ="";
     this.currNumber="";
     this.currNumbers=[];
     this.currOperators=[];
@@ -160,7 +160,7 @@ export class HomePage {
     let url = this.baseURL+number+this.urlParams;
     $.get(url,function(data)
     {
-      this.randFact = data;
+      $('#fact').text(data);
     });
   }
 
