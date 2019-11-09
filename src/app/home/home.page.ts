@@ -8,5 +8,21 @@ import { Component } from '@angular/core';
 export class HomePage {
 
   constructor() {}
+  currCalculation="";
+  inputOperator(op)
+  {
+    this.currCalculation += op;
+    console.log(this.currCalculation);
+  }
+  inputNumber(num)
+  {
+    this.currCalculation += num;
+    console.log(this.currCalculation);
+  }
+
+  calculateResult()
+  {
+    console.log(this.currCalculation+"=Fuck you");
+  }
 
 }
