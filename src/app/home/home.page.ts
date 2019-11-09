@@ -20,26 +20,40 @@ export class HomePage {
   
   changeSign()
   {
+    //If there isn't a current number, then we set the current number to this.value
+    if(this.currNumber === "")
+    {
+      this.currNumber = this.value;
+    }
     if(this.currNumber.slice(0,1) ==="-")
     {
       let currNumLength = this.currNumber.length;
       this.currNumber = this.currNumber.slice(1,this.currNumber.length);
       this.value = this.value.slice(0, this.value.length-currNumLength) + this.currNumber;
-      console.log(this.currNumber);
     }
     else
     {
       let currNumLength = this.currNumber.length;
       this.currNumber = "-"+this.currNumber;
       this.value = this.value.slice(0, this.value.length-currNumLength) + this.currNumber;
-      console.log(this.currNumber);
     }
 
   }
   inputOperator(op)
   {
-    //If the currentNumber is null, then we change the last operator we put in to the new one
-    if(this.currNumber === "")
+    //If there are no operators, and we don't have a current number, we are keeping our last result.
+    if(this.currNumber === "" && this.currOperators.length === 0)
+    {
+        if(this.value === "") //The case where we push an operator first thing
+        {
+          return
+        }
+      this.currNumbers.push (this.value);
+      this.currOperators.push(op);
+      this.value += op;
+      return
+    }//If the currentNumber is null, then we change the last operator we put in to the new one
+    else if(this.currNumber === "")
     {
       this.currOperators[this.currOperators.length-1] = op;
       this.value= this.value.slice(0,this.value.length-1) + op;
@@ -54,10 +68,38 @@ export class HomePage {
     console.log(this.currOperators);
 
   }
+  inputDecimal(decimal)
+  {
+    //If our current number already has a decimal in it, do nothing
+    if(this.currNumber.includes(decimal))
+    {
+      return;
+    }//if we are keeping our previous answer value and appending a decimal, do it
+    else if(this.currOperators.length == 0 && !this.value.includes(decimal))
+    {
+      this.value += decimal;
+      this.currNumber = this.value;
+    }//If we are just adding a decimal to a number, do it
+    else
+    {
+      this.currNumber += decimal;
+      this.value += decimal;
+    }
+  }
   inputNumber(num)
   {
+    //Update current number
     this.currNumber += num;
-    this.value += num;
+    //If we don't have any operators, reset out previous value display to the current presed button
+    if(this.currOperators.length === 0)
+    {
+      this.value = this.currNumber;
+    }
+    else
+    {//Append the number to our display
+      this.value += num;
+    }
+    
   }
 
   calculateResult()
