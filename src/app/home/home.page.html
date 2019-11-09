@@ -11,8 +11,8 @@
     <ion-grid>
 
       <ion-row>
-        <ion-button size="large">AC</ion-button>
-        <ion-button size="large">+/-</ion-button>
+        <ion-button size="large" (click)="resetState()">AC</ion-button>
+        <ion-button size="large" (click)="changeSign()">+/-</ion-button>
         <ion-button size="large">%</ion-button>
         <ion-button size="large" (click)="inputOperator('/')">/</ion-button>
       </ion-row>
