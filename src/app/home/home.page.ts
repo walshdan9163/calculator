@@ -12,7 +12,7 @@ import * as $ from "jquery";
 export class HomePage {
   constructor() {}
   baseURL="http://numbersapi.com/"
-  urlParams="/trivia?notfound=floor&fragment"
+  urlParams="/trivia?notfound=floor"
   currNumbers=[];
   currOperators=[];
   currNumber="";
