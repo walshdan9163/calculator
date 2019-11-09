@@ -12,7 +12,7 @@ $colors: (
 );
 
 .wholepage {
-    background: #EDF5E1;
+    background: #BE92C9;
 }
 
 // :root {
@@ -68,7 +68,7 @@ $colors: (
     font-size: 32px;
 }
 .result {
-    color: #C98BB9;
+    color: #222;
     width: 60%;
     margin: auto;
 }
@@ -77,12 +77,14 @@ $colors: (
 }
 
 .factclass {
-    color: #C98BB9;
+
+    background: #BE92C9;
     width: 90%;
     margin: auto;
 }
 
 #fact {
+    
     font-size: 15px;
     text-align: center;
 }
