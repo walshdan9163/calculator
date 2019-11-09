@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SlicePipe } from '@angular/common';
 import { evaluate } from "mathjs"
+import * as $ from "jquery";
 
 
 @Component({
@@ -9,14 +10,16 @@ import { evaluate } from "mathjs"
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  value = "";
-
   constructor() {}
+  baseURL="https://numbersapi.p.rapidapi.com/";
+  urlParams="/math";
+  
   currNumbers=[];
   currOperators=[];
   currNumber="";
   currEquation ="";
-
+  value = "";
+  randFact = "";
   
   changeSign()
   {
@@ -75,8 +78,12 @@ export class HomePage {
     {
       return;
     }//if we are keeping our previous answer value and appending a decimal, do it
-    else if(this.currOperators.length == 0 && !this.value.includes(decimal))
-    {
+    else if(this.currOperators.length == 0)
+    {//If the previous value has a decimal, do nothing
+      if(this.value.includes(decimal))
+      {
+        return
+      }
       this.value += decimal;
       this.currNumber = this.value;
     }//If we are just adding a decimal to a number, do it
@@ -99,7 +106,6 @@ export class HomePage {
     {//Append the number to our display
       this.value += num;
     }
-    
   }
 
   calculateResult()
@@ -128,6 +134,7 @@ export class HomePage {
     calculateString += this.currNumbers[j]
     console.log(calculateString);
     this.value = String(evaluate(calculateString));
+    this.getRandomFact(this.value);
 
 
     //Reset the state
@@ -143,9 +150,30 @@ export class HomePage {
   resetAll()
   {
     this.value ="";
+    this.randFact ="";
     this.currNumber="";
     this.currNumbers=[];
     this.currOperators=[];
   }
+
+  getRandomFact(number)
+  {
+    let url = this.baseURL+number+this.urlParams;
+    let settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": `${url}`,
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": "numbersapi.p.rapidapi.com",
+        "x-rapidapi-key": "aa6440c474mshc0b3310ab13c8e0p11c71cjsnf606f33ec5ad"
+      }
+    };
+    console.log(settings);
+    $.ajax(settings).done(function (response) {
+      $('#fact').text(response);
+    });
+  }
+
 
 }

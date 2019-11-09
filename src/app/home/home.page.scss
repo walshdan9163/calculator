@@ -54,11 +54,22 @@ ion-button {
     height: 64px;
     font-size: 32px;
 }
-#result {
+.result {
     color: #C98BB9;
     width: 60%;
     margin: auto;
 }
 #logo {
     font-size: 40px;
+}
+
+.factclass {
+    color: #C98BB9;
+    width: 90%;
+    margin: auto;
+}
+
+#fact {
+    font-size: 15px;
+    text-align: center;
 }
