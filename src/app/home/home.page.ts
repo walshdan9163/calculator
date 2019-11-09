@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SlicePipe } from '@angular/common';
+import { evaluate } from "mathjs"
 
 
 @Component({
@@ -76,7 +77,8 @@ export class HomePage {
     }
     calculateString += this.currNumbers[j]
     console.log(calculateString);
-    this.value = calculateString;
+    this.value = String(evaluate(calculateString));
+
 
     //Reset the state
     this.resetState();
