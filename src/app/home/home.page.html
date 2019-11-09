@@ -11,33 +11,33 @@
     <ion-grid>
 
       <ion-row>
-        <ion-button size="large">AC</ion-button>
-        <ion-button size="large">+/-</ion-button>
+        <ion-button size="large" (click)="resetState()">AC</ion-button>
+        <ion-button size="large" (click)="changeSign()">+/-</ion-button>
         <ion-button size="large">%</ion-button>
-        <ion-button size="large">/</ion-button>
+        <ion-button size="large" (click)="inputOperator('/')">/</ion-button>
       </ion-row>
       <ion-row>
-        <ion-button size="large">7</ion-button>
-        <ion-button size="large">8</ion-button>
-        <ion-button size="large">9</ion-button>
-        <ion-button size="large">x</ion-button>
+        <ion-button size="large" (click)="inputNumber('7')">7</ion-button>
+        <ion-button size="large" (click)="inputNumber('8')">8</ion-button>
+        <ion-button size="large" (click)="inputNumber('9')">9</ion-button>
+        <ion-button size="large" (click)="inputOperator('x')">x</ion-button>
       </ion-row>
       <ion-row>
-        <ion-button size="large">4</ion-button>
-        <ion-button size="large">5</ion-button>
-        <ion-button size="large">6</ion-button>
-        <ion-button size="large">-</ion-button>
+        <ion-button size="large" (click)="inputNumber('4')">4</ion-button>
+        <ion-button size="large" (click)="inputNumber('5')">5</ion-button>
+        <ion-button size="large" (click)="inputNumber('6')">6</ion-button>
+        <ion-button size="large" (click)="inputOperator('-')">-</ion-button>
       </ion-row>
       <ion-row>
-        <ion-button size="large">1</ion-button>
-        <ion-button size="large">2</ion-button>
-        <ion-button size="large">3</ion-button>
-        <ion-button size="large">+</ion-button>
+        <ion-button size="large" (click)="inputNumber('1')">1</ion-button>
+        <ion-button size="large" (click)="inputNumber('2')">2</ion-button>
+        <ion-button size="large" (click)="inputNumber('3')">3</ion-button>
+        <ion-button size="large" (click)="inputOperator('+')">+</ion-button>
       </ion-row>
       <ion-row>
-        <ion-button size="large">0</ion-button>
-        <ion-button size="large">.</ion-button>
-        <ion-button size="large">=</ion-button>
+        <ion-button size="large" (click)="inputNumber('0')">0</ion-button>
+        <ion-button size="large" (click)="inputNumber('.')">.</ion-button>
+        <ion-button size="large" (click)="calculateResult()">=</ion-button>
     </ion-row>
     </ion-grid>
   </div>
