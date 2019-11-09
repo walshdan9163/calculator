@@ -19,6 +19,7 @@ export class HomePage {
   currNumber="";
   currEquation ="";
   value = "";
+  randFact = "";
   
   changeSign()
   {
