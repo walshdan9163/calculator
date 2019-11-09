@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SlicePipe } from '@angular/common';
 import { evaluate } from "mathjs"
+import * as $ from "jquery";
 
 
 @Component({
@@ -9,14 +10,14 @@ import { evaluate } from "mathjs"
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  value = "";
-
   constructor() {}
+  baseURL="http://numbersapi.com/"
+  urlParams="/trivia?notfound=floor&fragment"
   currNumbers=[];
   currOperators=[];
   currNumber="";
   currEquation ="";
-
+  value = "";
   
   changeSign()
   {
@@ -132,6 +133,7 @@ export class HomePage {
     calculateString += this.currNumbers[j]
     console.log(calculateString);
     this.value = String(evaluate(calculateString));
+    this.getRandomFact(this.value);
 
 
     //Reset the state
@@ -151,5 +153,15 @@ export class HomePage {
     this.currNumbers=[];
     this.currOperators=[];
   }
+
+  getRandomFact(number)
+  {
+    let url = this.baseURL+number+this.urlParams;
+    $.get(url,function(data)
+    {
+      console.log(data);
+    });
+  }
+
 
 }
