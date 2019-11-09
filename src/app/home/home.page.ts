@@ -76,7 +76,7 @@ export class HomePage {
     }
     calculateString += this.currNumbers[j]
     console.log(calculateString);
-    value = calculateString;
+    this.value = calculateString;
 
     //Reset the state
     this.resetState();
