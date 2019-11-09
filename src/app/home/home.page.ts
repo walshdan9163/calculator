@@ -13,6 +13,11 @@ export class HomePage {
   constructor() {}
   baseURL="https://numbersapi.com/"
   urlParams="/trivia?notfound=floor"
+=======
+  baseURL="https://numbersapi.p.rapidapi.com/"
+  urlParams="/math"
+  
+>>>>>>> 3f91219c0a427a0b6fb104f5dad2d3d4122ede06
   currNumbers=[];
   currOperators=[];
   currNumber="";
@@ -158,9 +163,19 @@ export class HomePage {
   getRandomFact(number)
   {
     let url = this.baseURL+number+this.urlParams;
-    $.get(url,function(data)
-    {
-      $('#fact').text(data);
+    let settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": `${url}`,
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": "numbersapi.p.rapidapi.com",
+        "x-rapidapi-key": "aa6440c474mshc0b3310ab13c8e0p11c71cjsnf606f33ec5ad"
+      }
+    };
+    console.log(settings);
+    $.ajax(settings).done(function (response) {
+      $('#fact').text(response);
     });
   }
 
