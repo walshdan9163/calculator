@@ -9,24 +9,29 @@ import { evaluate } from "mathjs"
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  value = '0';
+  value = "";
 
   constructor() {}
   currNumbers=[];
   currOperators=[];
   currNumber="";
+  currEquation ="";
 
   
   changeSign()
   {
     if(this.currNumber.slice(0,1) ==="-")
     {
+      let currNumLength = this.currNumber.length;
       this.currNumber = this.currNumber.slice(1,this.currNumber.length);
+      this.value = this.value.slice(0, this.value.length-currNumLength) + this.currNumber;
       console.log(this.currNumber);
     }
     else
     {
+      let currNumLength = this.currNumber.length;
       this.currNumber = "-"+this.currNumber;
+      this.value = this.value.slice(0, this.value.length-currNumLength) + this.currNumber;
       console.log(this.currNumber);
     }
 
@@ -37,11 +42,13 @@ export class HomePage {
     if(this.currNumber === "")
     {
       this.currOperators[this.currOperators.length-1] = op;
+      this.value= this.value.slice(0,this.value.length-1) + op;
       return;
     }
     this.currNumbers.push(this.currNumber);
     this.currNumber="";
     this.currOperators.push(op);
+    this.value += op;
 
     console.log(this.currNumbers);
     console.log(this.currOperators);
@@ -50,6 +57,7 @@ export class HomePage {
   inputNumber(num)
   {
     this.currNumber += num;
+    this.value += num;
   }
 
   calculateResult()
@@ -86,6 +94,13 @@ export class HomePage {
 
   resetState()
   {
+    this.currNumber="";
+    this.currNumbers=[];
+    this.currOperators=[];
+  }
+  resetAll()
+  {
+    this.value ="";
     this.currNumber="";
     this.currNumbers=[];
     this.currOperators=[];
