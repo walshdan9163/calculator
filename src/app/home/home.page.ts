@@ -18,6 +18,7 @@ export class HomePage {
   currNumber="";
   currEquation ="";
   value = "";
+  randFact = "";
   
   changeSign()
   {
@@ -159,7 +160,7 @@ export class HomePage {
     let url = this.baseURL+number+this.urlParams;
     $.get(url,function(data)
     {
-      console.log(data);
+      this.randFact = data;
     });
   }
 
