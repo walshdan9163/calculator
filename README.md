@@ -5,3 +5,4 @@ To build:
 - npm install
 - ionic serve
 
+Web-app hosted at :https://calculator-2f70d.firebaseapp.com/home
