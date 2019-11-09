@@ -75,8 +75,12 @@ export class HomePage {
     {
       return;
     }//if we are keeping our previous answer value and appending a decimal, do it
-    else if(this.currOperators.length == 0 && !this.value.includes(decimal))
-    {
+    else if(this.currOperators.length == 0)
+    {//If the previous value has a decimal, do nothing
+      if(this.value.includes(decimal))
+      {
+        return
+      }
       this.value += decimal;
       this.currNumber = this.value;
     }//If we are just adding a decimal to a number, do it
