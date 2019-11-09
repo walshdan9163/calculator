@@ -2,6 +2,19 @@
     text-align: right;
     font-size: 32px;
 }
+
+$colors: (
+  primary:    #05386b,
+  secondary:  black,
+  danger:     #f53d3d,
+  light:      #f4f4f4,
+  dark:       #222
+);
+
+.wholepage {
+    background: #EDF5E1;
+}
+
 // :root {
 //     --ion-color-numbers: #69bb7b;
 //     --ion-color-numbers-rgb: 105,187,123;
@@ -35,9 +48,9 @@
 //     --ion-color-shade: var(--ion-color-operators-shade);
 //     --ion-color-tint: var(--ion-color-operators-tint);
 // }
-ion-button {
-    --color: #8EE4AF;
-}
+// ion-button {
+//     --color: #8EE4AF;
+// }
 
 .center {
     margin-left: auto;
@@ -72,4 +85,11 @@ ion-button {
 #fact {
     font-size: 15px;
     text-align: center;
+}
+.operator {
+    color: #05386B;
+}
+
+.number {
+    --background: #EDF5E1;
 }
