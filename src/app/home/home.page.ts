@@ -11,13 +11,9 @@ import * as $ from "jquery";
 })
 export class HomePage {
   constructor() {}
-  baseURL="https://numbersapi.com/"
-  urlParams="/trivia?notfound=floor"
-=======
-  baseURL="https://numbersapi.p.rapidapi.com/"
-  urlParams="/math"
+  baseURL="https://numbersapi.p.rapidapi.com/";
+  urlParams="/math";
   
->>>>>>> 3f91219c0a427a0b6fb104f5dad2d3d4122ede06
   currNumbers=[];
   currOperators=[];
   currNumber="";
